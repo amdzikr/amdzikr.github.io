@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMDZIKR | Coding Modern & AI</title>
+<meta name="description" content="Belajar coding modern dengan bantuan AI, tetap dikontrol manual agar hasil berkualitas.">
+
+<!-- AKTIFKAN SETELAH APPROVE ADSENSE -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-XXXX');
+</script> </script> -->
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui, sans-serif;
+  background:linear-gradient(180deg,#020617,#0f172a);
+  color:#e5e7eb;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
+
+/* NAV */
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:30px;
+}
+
+.logo{
+  font-weight:700;
+  font-size:18px;
+}
+
+.menu a{
+  margin-left:15px;
+  color:#94a3b8;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.menu a:hover{color:#38bdf8}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:40px 20px;
+}
+
+.hero h1{font-size:30px;margin-bottom:10px}
+.hero p{color:#94a3b8;max-width:600px;margin:auto}
+
+/* SECTION */
+.section-title{
+  margin-top:40px;
+  margin-bottom:15px;
+  font-size:20px;
+}
+
+/* CARD */
+.card{
+  background:rgba(30,41,59,0.7);
+  border:1px solid rgba(148,163,184,0.1);
+  padding:20px;
+  border-radius:14px;
+  margin-bottom:15px;
+  transition:0.25s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  border-color:#38bdf8;
+}
+
+.card h2{margin:0 0 8px;font-size:18px}
+.card p{color:#94a3b8;font-size:14px}
+
+a{color:#38bdf8;text-decoration:none}
+
+/* FOOTER */
+footer{
+  margin-top:50px;
+  text-align:center;
+  font-size:13px;
+  color:#64748b;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- NAV -->
+<div class="nav">
+  <div class="logo">
+    <a href="index.html">AMDZIKR</a>
+  </div>
+
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Belajar Coding Lebih Cepat dengan AI</h1>
+  <p>
+    AI bisa mempercepat coding, tapi tanpa kontrol manual hasilnya bisa berantakan.
+    Di sini kamu belajar dari pengalaman nyata, bukan teori kosong.
+  </p>
+</div>
+
+<!-- ARTIKEL -->
+<h2 class="section-title">Artikel Terbaru</h2>
+<div id="post-list"></div>
+
+<footer>
+  <p>© 2026 AMDZIKR • Built with Cloudflare Pages</p>
+</footer>
+
+</div>
+
+<!-- JS SYSTEM -->
+<script>
+const posts = [
+
+  {
+    title:"Cara Belajar Coding dengan AI (Pengalaman Nyata + Manual Check)",
+    url:"posts/post1.html",
+    desc:"Belajar coding dengan AI itu cepat, tapi tetap harus dicek manual agar tidak error.",
+    status:"publish"
+  },
+
+  {
+    title:"Post 2 (Coming Soon)",
+    url:"posts/post2.html",
+    desc:"Segera hadir...",
+    status:"draft"
+  }
+
+  // TAMBAH DI SINI:
+  // status:"publish" → tampil
+  // status:"draft" → disembunyikan
+
+];
+
+// RENDER
+const container = document.getElementById("post-list");
+
+posts
+  .filter(p => p.status === "publish")
+  .slice()
+  .reverse()
+  .forEach(p => {
+    container.innerHTML += `
+      <div class="card">
+        <h2><a href="${p.url}">${p.title}</a></h2>
+        <p>${p.desc}</p>
+      </div>
+    `;
+  });
+</script>
+
+</body>
+</html>
