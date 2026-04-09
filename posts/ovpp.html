@@ -1,20 +1,41 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
+<link rel="canonical" href="https://amdzikr.pages.dev/posts/ovpp.html">
+
+<script>
+if (location.hostname === "amdzikr.github.io") {
+  window.location.replace(
+    "https://amdzikr.pages.dev" +
+    location.pathname +
+    location.search +
+    location.hash
+  );
+}
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<script>
+if (location.hostname === "amdzikr.github.io") {
+  document.write('<meta name="robots" content="noindex, nofollow">');
+} else {
+  document.write('<meta name="robots" content="index, follow">');
+}
+</script>
 <title>Overview Lengkap | AMDZIKR</title>
 <meta name="description" content="Halaman overview lengkap AMDZIKR: Tentang Kami, Kontak, Privacy Policy, dan Terms of Service dalam satu tempat.">
 
-<!-- FAST LOAD: Preconnect -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 
-<!-- SEO: Canonical -->
+
 <link rel="canonical" href="https://amdzikr.pages.dev/posts/ovpp.html">
 
-<!-- FAVICON -->
+
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 
 <!-- As Personalized User Set google tag also-->
@@ -373,7 +394,7 @@
   
   <!-- BACK LINK (PATH ../ WAJIB) -->
   <div class="back-link">
-    <a href="../index.html">← Kembali ke Home</a>
+    <a href="https://amdzikr.pages.dev/">← Home</a>
   </div>
 
   <div class="content-card">
@@ -576,9 +597,9 @@
 
     </main>
 
-    <!-- FOOTER LINKS (PATH ../ WAJIB) -->
+    <!-- FOOTER LINKS home -->
     <div class="footer-links">
-      <a href="../index.html">🏠 Home</a>
+      <a href="https://amdzikr.pages.dev/">🏠 Home</a>
       <a href="#about">📖 About</a>
       <a href="#contact">📧 Contact</a>
       <a href="#privacy">🔒 Privacy</a>
@@ -590,69 +611,72 @@
 
 <!-- BOTTOM NAV -->
 <div class="center-nav">
-  <a href="../index.html">🏠 HOME</a>
+  <a href="https://amdzikr.pages.dev/">HOME</a>
 </div>
 
 <!-- SCRIPT -->
 <script>
-  (function() {
-    'use strict';
-    
-    console.log('📄 AMDZIKR OVPP — Overview Lengkap (TEAL Theme)');
-    
-    // Smooth scroll untuk semua anchor
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href && href !== '#' && href !== '#0') {
-          const target = document.querySelector(href);
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            history.pushState(null, null, href);
-          }
+(function() {
+  'use strict';
+
+  console.log('OVPP Ready');
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href && href !== '#' && href !== '#0') {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.pushState(null, null, href);
         }
-      });
+      }
     });
-    
-    // Ripple effect
-    document.querySelectorAll('.center-nav a, .back-link a, .internal-nav a').forEach(el => {
-      el.addEventListener('click', function(e) {
-        const ripple = document.createElement('span');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-        
-        ripple.style.position = 'absolute';
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = x + 'px';
-        ripple.style.top = y + 'px';
-        ripple.style.background = 'rgba(20, 184, 166, 0.2)';
-        ripple.style.borderRadius = '50%';
-        ripple.style.transform = 'scale(0)';
-        ripple.style.transition = 'transform 0.4s ease-out, opacity 0.4s';
-        ripple.style.pointerEvents = 'none';
-        ripple.style.zIndex = '1';
-        
-        const pos = window.getComputedStyle(this).position;
-        if (pos === 'static') this.style.position = 'relative';
-        this.style.overflow = 'hidden';
-        
-        this.appendChild(ripple);
-        
-        requestAnimationFrame(() => {
-          ripple.style.transform = 'scale(4)';
-          ripple.style.opacity = '0';
-        });
-        
-        setTimeout(() => ripple.remove(), 400);
+  });
+
+  // Ripple
+  document.querySelectorAll('a').forEach(el => {
+    el.addEventListener('click', function(e) {
+
+      if (this.getAttribute('href')?.startsWith('http')) return;
+
+      const old = this.querySelector('.ripple');
+      if (old) old.remove();
+
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple';
+
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+
+      ripple.style.position = 'absolute';
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+      ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+      ripple.style.background = 'rgba(20,184,166,0.2)';
+      ripple.style.borderRadius = '50%';
+      ripple.style.transform = 'scale(0)';
+      ripple.style.transition = 'transform 0.4s, opacity 0.4s';
+      ripple.style.pointerEvents = 'none';
+
+      const pos = window.getComputedStyle(this).position;
+      if (pos === 'static') this.style.position = 'relative';
+      this.style.overflow = 'hidden';
+
+      this.appendChild(ripple);
+
+      requestAnimationFrame(() => {
+        ripple.style.transform = 'scale(4)';
+        ripple.style.opacity = '0';
       });
+
+      setTimeout(() => ripple.remove(), 400);
     });
-    
-  })();
+  });
+
+})();
 </script>
-
-
 </body>
 </html>
