@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+<link rel="canonical" href="https://amdzikr.pages.dev/">
+
+<script>
+if (location.hostname === "amdzikr.github.io") {
+  window.location.replace(
+    "https://amdzikr.pages.dev" +
+    location.pathname +
+    location.search +
+    location.hash
+  );
+}
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<script>
+if (location.hostname === "amdzikr.github.io") {
+  document.write('<meta name="robots" content="noindex, nofollow">');
+} else {
+  document.write('<meta name="robots" content="index, follow">');
+}
+</script>
 <title>AMDZIKR | Coding Modern & AI — Belajar dari Pengalaman Nyata</title>
 <meta name="description" content="Belajar coding modern dengan bantuan AI, tetap dikontrol manual agar hasil berkualitas. Tutorial, tips, dan pengalaman nyata.">
-
-<!-- FAST LOAD: Preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 
-<!-- FAVICON -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 
-<!-- SEO: CANONICAL -->
-<link rel="canonical" href="https://amdzikr.pages.dev/">
 
 <!-- ADSENSE READY google tag also -->
 <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
@@ -437,19 +451,11 @@
 <div class="container">
   
   
-  <nav class="nav" aria-label="Navigasi utama">
-    <div class="logo">
-      <a href="./">🌙⭐ AMDZIKR</a>
-    </div>
-    <div class="menu">
-      
-      <a href="posts/about.html#about">About Us</a>
-      <a href="posts/ovpp.html">Overview | Privacy Policy</a>
-      
-     
-      
-    </div>
-  </nav>
+  <nav>
+  <a href="https://amdzikr.pages.dev/">HOME</a>
+  <a href="https://amdzikr.pages.dev/posts/about.html#about">About</a>
+  <a href="https://amdzikr.pages.dev/posts/ovpp.html">Overview</a>
+</nav>
 
   <main id="main-content">
     
@@ -478,10 +484,10 @@
       <!-- JavaScript akan render di sini -->
     </div>
 
-    <!-- ========== ADSENSE 2 ========== -->
+    <!-- ==== Collab ads 2 by manual ==== -->
     <div class="ad-bottom" aria-label="Area iklan">
       <span>📢 ADVERTISEMENT</span><br>
-      <span style="opacity: 0.6;">[ Ads by - 100% personalized ]</span>
+      <span style="opacity: 0.6;">[ Ads by - collaburation ]</span>
     </div>
 
   </main>
@@ -508,148 +514,114 @@
 
 </div>
 
-<!-- ========== POST SYSTEM ========== -->
+<!-- ========== POST ========== -->
+
 <script>
-  (function() {
-    'use strict';
-    
-    // ========== DATA ARTIKEL ==========
-    const posts = [
-      {
-        title: "Cara Belajar Coding dengan AI (Pengalaman Nyata + Manual Check)",
-        url: "posts/post1.html",
-        desc: "Belajar coding dengan AI itu cepat, tapi tetap harus dicek manual agar tidak error. Pengalaman nyata trial & error.",
-        status: "publish",
-        date: "9 Jan 2026",
-        tag: "AI & Coding"
-      },
-      {
-        title: "Overview | Privacy Policy Lengkap AMDZIKR",
-        url: "posts/ovpp.html",
-        desc: "Tentang Kami, Kontak, Privacy Policy, dan Terms of Service dalam satu halaman lengkap.",
-        status: "publish",
-        date: "9 Jan 2026",
-        tag: "Information"
-      },
-      {
-        title: "Coming Soon: Struktur Data untuk Pemula",
-        url: "#",
-        desc: "Artikel sedang dalam penulisan. Stay tuned!",
-        status: "draft",
-        tag: "Fundamental"
-      },
-      {
-        title: "Coming Soon: Optimasi Performa Website",
-        url: "#",
-        desc: "Tips praktis mempercepat loading website kamu.",
-        status: "draft",
-        tag: "Performance"
-      }
-    ];
+(function() {
+  'use strict';
 
-    // ========== RENDER POSTS ==========
-    const container = document.getElementById('post-list');
-    const publishedPosts = posts.filter(p => p.status === 'publish');
-    
-    // Update article count
-    const countSpan = document.getElementById('article-count');
-    if (countSpan) {
-      countSpan.textContent = `${publishedPosts.length} Artikel`;
+  // ========== DATA ==========
+  const posts = [
+    {
+      title: "Cara Belajar Coding dengan AI (Pengalaman Nyata + Manual Check)",
+      url: "https://amdzikr.pages.dev/posts/post1.html",
+      desc: "Belajar coding dengan AI itu cepat, tapi tetap harus dicek manual agar tidak error.",
+      status: "publish",
+      date: "9 Jan 2026",
+      tag: "AI & Coding"
+    },
+    {
+      title: "Overview | Privacy Policy Lengkap AMDZIKR",
+      url: "https://amdzikr.pages.dev/posts/ovpp.html",
+      desc: "Tentang Kami, Kontak, Privacy Policy, dan Terms dalam satu halaman.",
+      status: "publish",
+      date: "9 Jan 2026",
+      tag: "Information"
+    },
+    {
+      title: "Coming Soon: Struktur Data untuk Pemula",
+      url: "#",
+      desc: "Artikel sedang dalam penulisan.",
+      status: "draft",
+      tag: "Fundamental"
     }
+  ];
 
-    if (publishedPosts.length === 0) {
-      container.innerHTML = `
-        <div class="empty-state">
-          <p>📝 Belum ada artikel yang dipublikasikan.</p>
-          <p style="font-size: 0.85rem;">Stay tuned! Konten berkualitas sedang disiapkan.</p>
-        </div>
-      `;
-    } else {
-      publishedPosts
-        .slice()
-        .reverse()
-        .forEach(post => {
-          const card = document.createElement('article');
-          card.className = 'card';
-          
-          card.innerHTML = `
-            <div class="card-meta">
-              <span class="card-tag">${post.tag || 'AI & Coding'}</span>
-              <span>${post.date || '2026'}</span>
-            </div>
-            <h2><a href="${post.url}">${post.title}</a></h2>
-            <p>${post.desc}</p>
-            <a href="${post.url}" class="read-more">
-              Baca selengkapnya 
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          `;
-          
-          card.addEventListener('click', function(e) {
-            const target = e.target;
-            if (target.closest('a')) return;
-            if (post.url && post.url !== '#') {
-              window.location.href = post.url;
-            }
-          });
-          
-          container.appendChild(card);
-        });
-    }
+  // ========== INIT ==========
+  const container = document.getElementById('post-list');
+  const countSpan = document.getElementById('article-count');
 
-    // ========== HIGHLIGHT CURRENT PAGE ==========
-    const currentPath = window.location.pathname;
-    document.querySelectorAll('.menu a, .footer-links a').forEach(link => {
-      const href = link.getAttribute('href');
-      if (href === './' || href === 'index.html' || href === '') {
-        if (currentPath === '/' || currentPath.endsWith('/') || 
-            currentPath.endsWith('index.html') || currentPath === '') {
-          link.classList.add('active');
-        }
+  if (!container) return;
+
+  const publishedPosts = posts.filter(p => p.status === 'publish');
+
+  if (countSpan) {
+    countSpan.textContent = `${publishedPosts.length} Artikel`;
+  }
+
+  // ========== RENDER ==========
+  if (publishedPosts.length === 0) {
+    container.innerHTML = `
+      <div>
+        <p>Belum ada artikel.</p>
+      </div>
+    `;
+    return;
+  }
+
+  publishedPosts.reverse().forEach(post => {
+    const card = document.createElement('article');
+
+    card.innerHTML = `
+      <div>
+        <span>${post.tag}</span> • <span>${post.date}</span>
+      </div>
+      <h2><a href="${post.url}">${post.title}</a></h2>
+      <p>${post.desc}</p>
+      <a href="${post.url}">Baca selengkapnya</a>
+    `;
+
+    card.addEventListener('click', function(e) {
+      if (e.target.closest('a')) return;
+      if (post.url !== '#') {
+        window.location.href = post.url;
       }
     });
 
-    // ========== RIPPLE EFFECT ==========
-    document.querySelectorAll('.menu a, .footer-links a, .card').forEach(el => {
-      el.addEventListener('click', function(e) {
-        if (el.tagName === 'A' && el.getAttribute('href')?.startsWith('http')) return;
-        
-        const ripple = document.createElement('span');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-        
-        ripple.style.position = 'absolute';
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = x + 'px';
-        ripple.style.top = y + 'px';
-        ripple.style.background = 'rgba(6, 182, 212, 0.15)';
-        ripple.style.borderRadius = '50%';
-        ripple.style.transform = 'scale(0)';
-        ripple.style.transition = 'transform 0.4s ease-out, opacity 0.4s';
-        ripple.style.pointerEvents = 'none';
-        ripple.style.zIndex = '1';
-        
-        const pos = window.getComputedStyle(this).position;
-        if (pos === 'static') this.style.position = 'relative';
-        this.style.overflow = 'hidden';
-        
-        this.appendChild(ripple);
-        
-        requestAnimationFrame(() => {
-          ripple.style.transform = 'scale(4)';
-          ripple.style.opacity = '0';
-        });
-        
-        setTimeout(() => ripple.remove(), 400);
+    container.appendChild(card);
+  });
+
+  // ========== RIPPLE ==========
+  document.querySelectorAll('a, article').forEach(el => {
+    el.addEventListener('click', function(e) {
+      const ripple = document.createElement('span');
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+
+      ripple.style.position = 'absolute';
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+      ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+      ripple.style.background = 'rgba(0,0,0,0.1)';
+      ripple.style.borderRadius = '50%';
+      ripple.style.transform = 'scale(0)';
+      ripple.style.transition = 'transform 0.4s, opacity 0.4s';
+      ripple.style.pointerEvents = 'none';
+
+      this.appendChild(ripple);
+
+      requestAnimationFrame(() => {
+        ripple.style.transform = 'scale(3)';
+        ripple.style.opacity = '0';
       });
+
+      setTimeout(() => ripple.remove(), 400);
     });
+  });
 
-    console.log('✅ AMDZIKR — amdzikr.pages.dev — Index Ready!');
-  })();
+  console.log('Index clean & stable');
+})();
 </script>
-
 
 </body>
 </html>
