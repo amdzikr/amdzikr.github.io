@@ -6,7 +6,7 @@
 <title>AMDZIKR | Coding Modern & AI — Belajar dari Pengalaman Nyata</title>
 <meta name="description" content="Belajar coding modern dengan bantuan AI, tetap dikontrol manual agar hasil berkualitas. Tutorial, tips, dan pengalaman nyata.">
 
-<!-- BEST PRACTICE: Preconnect & DNS Prefetch -->
+<!-- FAST LOAD: Preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -14,12 +14,11 @@
 <!-- FAVICON -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 
-<!-- CANONICAL URL (PENTING UNTUK ADSENSE) -->
+<!-- SEO: CANONICAL -->
 <link rel="canonical" href="https://amdzikr.pages.dev/">
 
-<!-- ========== ADSENSE READY (AKTIFKAN SETELAH APPROVE) ========== -->
+<!-- ADSENSE READY google tag also -->
 <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
-<!-- <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script> -->
 
 <style>
   /* ========== RESET & VARIABLES ========== */
@@ -31,6 +30,7 @@
 
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    /* SKEMA WARNA: SLATE/CYAN (HOME) */
     background: #0a0f14;
     color: #e5e7eb;
     line-height: 1.6;
@@ -68,7 +68,7 @@
     100% { opacity: 1; }
   }
 
-  /* ========== NAVIGATION (PATH SESUAI STRUKTUR GITHUB) ========== */
+  /* ========== NAVIGATION (PATH ../ WAJIB UNTUK KONSISTENSI) ========== */
   .nav {
     display: flex;
     justify-content: space-between;
@@ -431,21 +431,23 @@
 
 <body>
 
-<!-- Skip Link (A11Y) -->
+<!-- SKIP LINK (A11Y) -->
 <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
 
 <div class="container">
   
-
-  <nav class="nav" aria-label="Navigasi utama header">
+  
+  <nav class="nav" aria-label="Navigasi utama">
     <div class="logo">
-      <a href="./">🌜⭐ AMDZIKR</a>
+      <a href="./">🌙⭐ AMDZIKR</a>
     </div>
     <div class="menu">
       
-      <a href="posts/contact.html">Contact</a>
-      <a href="posts/privacy.html">Privacy</a>
-      <a href="posts/terms.html">Terms</a>
+      <a href="posts/about.html#about">About Us</a>
+      <a href="posts/ovpp.html">Overview | Privacy Policy</a>
+      
+     
+      
     </div>
   </nav>
 
@@ -460,26 +462,26 @@
       </p>
     </section>
 
-    <!-- ========== ADSENSE SPACE 1 ========== -->
+    <!-- ========== ADSENSE 1 ========== -->
     <div class="ad-top" aria-label="Area iklan">
       <span>📢 ADVERTISEMENT</span><br>
-      <span style="opacity: 0.6;">[ Please Ping Us The Issue ]</span>
+      <span style="opacity: 0.6;">[ based personalized ]</span>
     </div>
 
     <!-- ========== ARTIKEL SECTION ========== -->
     <div class="section-header">
-      <h2 class="section-title">Total Artikel Berjumlah : </h2>
-      <span class="article-count" id="article-count">1</span>
+      <h2 class="section-title">Total Artikel</h2>
+      <span class="article-count" id="article-count">Info Artikel</span>
     </div>
 
     <div id="post-list" class="post-grid">
-      <!-- Akan diisi oleh JavaScript -->
+      <!-- JavaScript akan render di sini -->
     </div>
 
-    <!-- ========== ADSENSE SPACE 2 ========== -->
+    <!-- ========== ADSENSE 2 ========== -->
     <div class="ad-bottom" aria-label="Area iklan">
       <span>📢 ADVERTISEMENT</span><br>
-      <span style="opacity: 0.6;">[ Please Don't Forget Collaboration]</span>
+      <span style="opacity: 0.6;">[ Ads by - 100% personalized ]</span>
     </div>
 
   </main>
@@ -487,14 +489,14 @@
   <!-- ========== FOOTER ========== -->
   <footer>
     <div class="footer-links">
-    
      
-      <nav class="nav" aria-label="Navigasi bawah footer">
+      <a href="posts/ovpp.html">Terms</a>
+      <a href="posts/contact.html#contact">Contact</a>
      
-      <a href="../posts/about.html">About</a>
-       <a href="./" class="active" aria-current="page">Home</a> </nav>
+      
     </div>
     <div class="copyright">
+    <a href="./" class="active" aria-current="page">HOME</a>
       <p>© 2026 <a href="./">AMDZIKR</a> • 
         <a href="https://amdzikr.pages.dev">amdzikr.pages.dev</a>
       </p>
@@ -506,21 +508,28 @@
 
 </div>
 
-<!-- ========== POST SYSTEM (URL SESUAI STRUKTUR FOLDER /posts/) ========== -->
+<!-- ========== POST SYSTEM ========== -->
 <script>
   (function() {
     'use strict';
     
-    // ========== DATA ARTIKEL (URL SESUAI STRUKTUR ANDA) ==========
-    // ARTIKEL DISIMPAN DI FOLDER /posts/
+    // ========== DATA ARTIKEL ==========
     const posts = [
       {
         title: "Cara Belajar Coding dengan AI (Pengalaman Nyata + Manual Check)",
-        url: "posts/post1.html",  // ✅ PATH SESUAI STRUKTUR GITHUB ANDA
+        url: "posts/post1.html",
         desc: "Belajar coding dengan AI itu cepat, tapi tetap harus dicek manual agar tidak error. Pengalaman nyata trial & error.",
         status: "publish",
-        date: "Jan 2026",
+        date: "9 Jan 2026",
         tag: "AI & Coding"
+      },
+      {
+        title: "Overview | Privacy Policy Lengkap AMDZIKR",
+        url: "posts/ovpp.html",
+        desc: "Tentang Kami, Kontak, Privacy Policy, dan Terms of Service dalam satu halaman lengkap.",
+        status: "publish",
+        date: "9 Jan 2026",
+        tag: "Information"
       },
       {
         title: "Coming Soon: Struktur Data untuk Pemula",
@@ -576,10 +585,9 @@
             </a>
           `;
           
-          // Card click handler (seluruh card bisa diklik, kecuali link spesifik)
           card.addEventListener('click', function(e) {
             const target = e.target;
-            if (target.closest('a')) return; // Jangan ganggu klik link asli
+            if (target.closest('a')) return;
             if (post.url && post.url !== '#') {
               window.location.href = post.url;
             }
@@ -591,11 +599,9 @@
 
     // ========== HIGHLIGHT CURRENT PAGE ==========
     const currentPath = window.location.pathname;
-    document.querySelectorAll('.menu a').forEach(link => {
+    document.querySelectorAll('.menu a, .footer-links a').forEach(link => {
       const href = link.getAttribute('href');
-      
-      // Deteksi halaman aktif
-      if (href === './' || href === 'index.html' || href === '/' || href === '') {
+      if (href === './' || href === 'index.html' || href === '') {
         if (currentPath === '/' || currentPath.endsWith('/') || 
             currentPath.endsWith('index.html') || currentPath === '') {
           link.classList.add('active');
@@ -603,17 +609,9 @@
       }
     });
 
-    // ========== FIX BROKEN LINKS (PREVENT 404) ==========
-    // Handle navigation dengan aman
-    window.addEventListener('error', function(e) {
-      // Cegah error handling jika diperlukan
-      console.warn('Navigation error prevented');
-    }, true);
-
-    // ========== RIPPLE EFFECT (LIGHTWEIGHT) ==========
-    document.querySelectorAll('.menu a, .card').forEach(el => {
+    // ========== RIPPLE EFFECT ==========
+    document.querySelectorAll('.menu a, .footer-links a, .card').forEach(el => {
       el.addEventListener('click', function(e) {
-        // Jangan buat ripple jika ini link eksternal atau anchor
         if (el.tagName === 'A' && el.getAttribute('href')?.startsWith('http')) return;
         
         const ripple = document.createElement('span');
@@ -648,7 +646,7 @@
       });
     });
 
-    console.log('✅ AMDZIKR — amdzikr.pages.dev — Ready!');
+    console.log('✅ AMDZIKR — amdzikr.pages.dev — Index Ready!');
   })();
 </script>
 
