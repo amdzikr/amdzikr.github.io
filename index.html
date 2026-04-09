@@ -2,180 +2,656 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AMDZIKR | Coding Modern & AI</title>
-<meta name="description" content="Belajar coding modern dengan bantuan AI, tetap dikontrol manual agar hasil berkualitas.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>AMDZIKR | Coding Modern & AI — Belajar dari Pengalaman Nyata</title>
+<meta name="description" content="Belajar coding modern dengan bantuan AI, tetap dikontrol manual agar hasil berkualitas. Tutorial, tips, dan pengalaman nyata.">
 
-<!-- AKTIFKAN SETELAH APPROVE ADSENSE -->
-<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXX"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
+<!-- BEST PRACTICE: Preconnect & DNS Prefetch -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 
-gtag('config', 'G-XXXX');
-</script> </script> -->
+<!-- FAVICON -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+<!-- CANONICAL URL (PENTING UNTUK ADSENSE) -->
+<link rel="canonical" href="https://amdzikr.pages.dev/">
+
+<!-- ========== ADSENSE READY (AKTIFKAN SETELAH APPROVE) ========== -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+<!-- <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script> -->
+
 <style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:system-ui, sans-serif;
-  background:linear-gradient(180deg,#020617,#0f172a);
-  color:#e5e7eb;
-}
+  /* ========== RESET & VARIABLES ========== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:20px;
-}
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #0a0f14;
+    color: #e5e7eb;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-/* NAV */
-.nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:30px;
-}
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 15%, rgba(6, 182, 212, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 80% 85%, rgba(34, 211, 238, 0.04) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+  }
 
-.logo{
-  font-weight:700;
-  font-size:18px;
-}
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem 0;
+    width: 100%;
+    flex: 1;
+    animation: fadeIn 0.5s ease-out;
+  }
 
-.menu a{
-  margin-left:15px;
-  color:#94a3b8;
-  text-decoration:none;
-  font-size:14px;
-}
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
 
-.menu a:hover{color:#38bdf8}
+  /* ========== NAVIGATION (PATH SESUAI STRUKTUR GITHUB) ========== */
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(6, 182, 212, 0.15);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
 
-/* HERO */
-.hero{
-  text-align:center;
-  padding:40px 20px;
-}
+  .logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #ffffff, #a5f3fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
 
-.hero h1{font-size:30px;margin-bottom:10px}
-.hero p{color:#94a3b8;max-width:600px;margin:auto}
+  .logo a:hover {
+    opacity: 0.85;
+  }
 
-/* SECTION */
-.section-title{
-  margin-top:40px;
-  margin-bottom:15px;
-  font-size:20px;
-}
+  .menu {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
 
-/* CARD */
-.card{
-  background:rgba(30,41,59,0.7);
-  border:1px solid rgba(148,163,184,0.1);
-  padding:20px;
-  border-radius:14px;
-  margin-bottom:15px;
-  transition:0.25s;
-}
+  .menu a {
+    color: #9ca3af;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    transition: all 0.2s;
+    background: transparent;
+    border: 1px solid transparent;
+  }
 
-.card:hover{
-  transform:translateY(-4px);
-  border-color:#38bdf8;
-}
+  .menu a:hover {
+    color: #22d3ee;
+    background: rgba(6, 182, 212, 0.08);
+    border-color: rgba(6, 182, 212, 0.2);
+  }
 
-.card h2{margin:0 0 8px;font-size:18px}
-.card p{color:#94a3b8;font-size:14px}
+  .menu a.active {
+    color: #22d3ee;
+    background: rgba(6, 182, 212, 0.12);
+    border-color: rgba(6, 182, 212, 0.25);
+  }
 
-a{color:#38bdf8;text-decoration:none}
+  /* ========== HERO ========== */
+  .hero {
+    text-align: center;
+    padding: 3rem 1.5rem 3.5rem;
+    margin-bottom: 1rem;
+    background: rgba(15, 23, 31, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 40px;
+    border: 1px solid rgba(6, 182, 212, 0.12);
+    animation: heroGlow 1.5s ease-out;
+  }
 
-/* FOOTER */
-footer{
-  margin-top:50px;
-  text-align:center;
-  font-size:13px;
-  color:#64748b;
-}
+  @keyframes heroGlow {
+    0% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); }
+    40% { box-shadow: 0 0 40px 2px rgba(6, 182, 212, 0.08); }
+    100% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); }
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+    background: linear-gradient(to right, #ffffff, #cffafe, #67e8f9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero p {
+    color: #9ca3af;
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+  }
+
+  /* ========== AD PLACEHOLDER ========== */
+  .ad-top, .ad-bottom {
+    background: rgba(15, 23, 31, 0.5);
+    border: 1px dashed rgba(6, 182, 212, 0.2);
+    border-radius: 20px;
+    padding: 1rem;
+    margin: 1.5rem 0 2.5rem;
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .ad-bottom {
+    margin: 2.5rem 0 1.5rem;
+  }
+
+  /* ========== SECTION ========== */
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2.5rem 0 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #e5e7eb;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title::before {
+    content: "▹";
+    color: #06b6d4;
+    font-size: 1.6rem;
+  }
+
+  .article-count {
+    color: #6b7280;
+    font-size: 0.85rem;
+    background: rgba(6, 182, 212, 0.08);
+    padding: 0.3rem 1rem;
+    border-radius: 30px;
+    border: 1px solid rgba(6, 182, 212, 0.15);
+  }
+
+  /* ========== CARD ========== */
+  .post-grid {
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .card {
+    background: rgba(15, 23, 31, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(6, 182, 212, 0.12);
+    padding: 1.8rem 2rem;
+    border-radius: 24px;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    animation: cardFadeIn 0.5s ease-out forwards;
+    opacity: 0;
+  }
+
+  .card:nth-child(1) { animation-delay: 0.05s; }
+  .card:nth-child(2) { animation-delay: 0.1s; }
+  .card:nth-child(3) { animation-delay: 0.15s; }
+
+  @keyframes cardFadeIn {
+    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(8px); }
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(6, 182, 212, 0.35);
+    background: rgba(15, 23, 31, 0.8);
+    box-shadow: 0 12px 30px -8px rgba(6, 182, 212, 0.1);
+  }
+
+  .card h2 {
+    margin: 0 0 0.6rem;
+    font-size: 1.35rem;
+    font-weight: 650;
+    line-height: 1.4;
+  }
+
+  .card h2 a {
+    color: #f3f4f6;
+    text-decoration: none;
+    transition: color 0.2s;
+    display: inline-block;
+  }
+
+  .card h2 a:hover {
+    color: #22d3ee;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.8rem;
+    color: #6b7280;
+  }
+
+  .card-tag {
+    background: rgba(6, 182, 212, 0.12);
+    color: #67e8f9;
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+  }
+
+  .card p {
+    color: #9ca3af;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #22d3ee;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .read-more:hover {
+    gap: 10px;
+  }
+
+  /* ========== EMPTY STATE ========== */
+  .empty-state {
+    text-align: center;
+    padding: 3rem;
+    background: rgba(15, 23, 31, 0.4);
+    border-radius: 24px;
+    border: 1px dashed rgba(6, 182, 212, 0.2);
+  }
+
+  .empty-state p {
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    margin-top: 3rem;
+    padding: 2rem 0 1.5rem;
+    text-align: center;
+    border-top: 1px solid rgba(6, 182, 212, 0.1);
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: #22d3ee;
+  }
+
+  .copyright {
+    color: #4b5563;
+    font-size: 0.8rem;
+  }
+
+  .copyright a {
+    color: #6b7280;
+    text-decoration: none;
+  }
+
+  .copyright a:hover {
+    color: #22d3ee;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 640px) {
+    .container {
+      padding: 1rem 1rem 0;
+    }
+    .nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .menu {
+      width: 100%;
+      justify-content: flex-start;
+    }
+    .menu a {
+      padding: 0.4rem 0.9rem;
+      font-size: 0.85rem;
+    }
+    .hero {
+      padding: 2rem 1rem;
+    }
+    .hero h1 {
+      font-size: 2rem;
+    }
+    .card {
+      padding: 1.3rem 1.3rem;
+    }
+    .card h2 {
+      font-size: 1.2rem;
+    }
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  }
+
+  /* ========== ACCESSIBILITY ========== */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid #22d3ee;
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #22d3ee;
+    color: #0a0f14;
+    padding: 8px 16px;
+    z-index: 100;
+    border-radius: 0 0 8px 0;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .skip-link:focus {
+    top: 0;
+  }
 </style>
 </head>
 
 <body>
 
+<!-- Skip Link (A11Y) -->
+<a href="#main-content" class="skip-link">Lewati ke konten utama</a>
+
 <div class="container">
+  
 
-<!-- NAV -->
-<div class="nav">
-  <div class="logo">
-    <a href="index.html">AMDZIKR</a>
-  </div>
+  <nav class="nav" aria-label="Navigasi utama header">
+    <div class="logo">
+      <a href="./">🌜⭐ AMDZIKR</a>
+    </div>
+    <div class="menu">
+      
+      <a href="posts/contact.html">Contact</a>
+      <a href="posts/privacy.html">Privacy</a>
+      <a href="posts/terms.html">Terms</a>
+    </div>
+  </nav>
 
-<div class="menu">
-  <a href="/index.html">Home</a>
-  <a href="/posts/about.html">About</a>
-  <a href="/posts/contact.html">Contact</a>
-  <a href="/posts/privacy.html">Privacy</a>
+  <main id="main-content">
+    
+    <!-- ========== HERO ========== -->
+    <section class="hero" aria-label="Hero">
+      <h1>Belajar Coding Lebih Cepat dengan AI</h1>
+      <p>
+        AI bisa mempercepat coding, tapi tanpa kontrol manual hasilnya bisa berantakan.
+        Di sini kamu belajar dari pengalaman nyata, bukan teori kosong.
+      </p>
+    </section>
+
+    <!-- ========== ADSENSE SPACE 1 ========== -->
+    <div class="ad-top" aria-label="Area iklan">
+      <span>📢 ADVERTISEMENT</span><br>
+      <span style="opacity: 0.6;">[ Please Ping Us The Issue ]</span>
+    </div>
+
+    <!-- ========== ARTIKEL SECTION ========== -->
+    <div class="section-header">
+      <h2 class="section-title">Total Artikel Berjumlah : </h2>
+      <span class="article-count" id="article-count">1</span>
+    </div>
+
+    <div id="post-list" class="post-grid">
+      <!-- Akan diisi oleh JavaScript -->
+    </div>
+
+    <!-- ========== ADSENSE SPACE 2 ========== -->
+    <div class="ad-bottom" aria-label="Area iklan">
+      <span>📢 ADVERTISEMENT</span><br>
+      <span style="opacity: 0.6;">[ Please Don't Forget Collaboration]</span>
+    </div>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="footer-links">
+    
+     
+      <nav class="nav" aria-label="Navigasi bawah footer">
+     
+      <a href="posts/about.html">About</a>
+       <a href="./" class="active" aria-current="page">Home</a> </nav>
+    </div>
+    <div class="copyright">
+      <p>© 2026 <a href="./">AMDZIKR</a> • 
+        <a href="https://amdzikr.pages.dev">amdzikr.pages.dev</a>
+      </p>
+      <p style="margin-top: 0.5rem; font-size: 0.7rem;">
+        <span style="color: #22d3ee;">♥</span> Coding Modern • AI Assistant • Manual Check
+      </p>
+    </div>
+  </footer>
+
 </div>
-</div>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>Belajar Coding Lebih Cepat dengan AI</h1>
-  <p>
-    AI bisa mempercepat coding, tapi tanpa kontrol manual hasilnya bisa berantakan.
-    Di sini kamu belajar dari pengalaman nyata, bukan teori kosong.
-  </p>
-</div>
-
-<!-- ARTIKEL -->
-<h2 class="section-title">Artikel Terbaru</h2>
-<div id="post-list"></div>
-
-<footer>
-  <p>© 2026 AMDZIKR • Built with Cloudflare Pages</p>
-</footer>
-
-</div>
-
-<!-- JS SYSTEM -->
+<!-- ========== POST SYSTEM (URL SESUAI STRUKTUR FOLDER /posts/) ========== -->
 <script>
-const posts = [
+  (function() {
+    'use strict';
+    
+    // ========== DATA ARTIKEL (URL SESUAI STRUKTUR ANDA) ==========
+    // ARTIKEL DISIMPAN DI FOLDER /posts/
+    const posts = [
+      {
+        title: "Cara Belajar Coding dengan AI (Pengalaman Nyata + Manual Check)",
+        url: "posts/post1.html",  // ✅ PATH SESUAI STRUKTUR GITHUB ANDA
+        desc: "Belajar coding dengan AI itu cepat, tapi tetap harus dicek manual agar tidak error. Pengalaman nyata trial & error.",
+        status: "publish",
+        date: "Jan 2026",
+        tag: "AI & Coding"
+      },
+      {
+        title: "Coming Soon: Struktur Data untuk Pemula",
+        url: "#",
+        desc: "Artikel sedang dalam penulisan. Stay tuned!",
+        status: "draft",
+        tag: "Fundamental"
+      },
+      {
+        title: "Coming Soon: Optimasi Performa Website",
+        url: "#",
+        desc: "Tips praktis mempercepat loading website kamu.",
+        status: "draft",
+        tag: "Performance"
+      }
+    ];
 
-  {
-    title:"Cara Belajar Coding dengan AI (Pengalaman Nyata + Manual Check)",
-    url:"posts/post1.html",
-    desc:"Belajar coding dengan AI itu cepat, tapi tetap harus dicek manual agar tidak error.",
-    status:"publish"
-  },
+    // ========== RENDER POSTS ==========
+    const container = document.getElementById('post-list');
+    const publishedPosts = posts.filter(p => p.status === 'publish');
+    
+    // Update article count
+    const countSpan = document.getElementById('article-count');
+    if (countSpan) {
+      countSpan.textContent = `${publishedPosts.length} Artikel`;
+    }
 
-  {
-    title:"Post 2 (Coming Soon)",
-    url:"posts/post2.html",
-    desc:"Segera hadir...",
-    status:"draft"
-  }
+    if (publishedPosts.length === 0) {
+      container.innerHTML = `
+        <div class="empty-state">
+          <p>📝 Belum ada artikel yang dipublikasikan.</p>
+          <p style="font-size: 0.85rem;">Stay tuned! Konten berkualitas sedang disiapkan.</p>
+        </div>
+      `;
+    } else {
+      publishedPosts
+        .slice()
+        .reverse()
+        .forEach(post => {
+          const card = document.createElement('article');
+          card.className = 'card';
+          
+          card.innerHTML = `
+            <div class="card-meta">
+              <span class="card-tag">${post.tag || 'AI & Coding'}</span>
+              <span>${post.date || '2026'}</span>
+            </div>
+            <h2><a href="${post.url}">${post.title}</a></h2>
+            <p>${post.desc}</p>
+            <a href="${post.url}" class="read-more">
+              Baca selengkapnya 
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          `;
+          
+          // Card click handler (seluruh card bisa diklik, kecuali link spesifik)
+          card.addEventListener('click', function(e) {
+            const target = e.target;
+            if (target.closest('a')) return; // Jangan ganggu klik link asli
+            if (post.url && post.url !== '#') {
+              window.location.href = post.url;
+            }
+          });
+          
+          container.appendChild(card);
+        });
+    }
 
-  // TAMBAH DI SINI:
-  // status:"publish" → tampil
-  // status:"draft" → disembunyikan
+    // ========== HIGHLIGHT CURRENT PAGE ==========
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('.menu a').forEach(link => {
+      const href = link.getAttribute('href');
+      
+      // Deteksi halaman aktif
+      if (href === './' || href === 'index.html' || href === '/' || href === '') {
+        if (currentPath === '/' || currentPath.endsWith('/') || 
+            currentPath.endsWith('index.html') || currentPath === '') {
+          link.classList.add('active');
+        }
+      }
+    });
 
-];
+    // ========== FIX BROKEN LINKS (PREVENT 404) ==========
+    // Handle navigation dengan aman
+    window.addEventListener('error', function(e) {
+      // Cegah error handling jika diperlukan
+      console.warn('Navigation error prevented');
+    }, true);
 
-// RENDER
-const container = document.getElementById("post-list");
+    // ========== RIPPLE EFFECT (LIGHTWEIGHT) ==========
+    document.querySelectorAll('.menu a, .card').forEach(el => {
+      el.addEventListener('click', function(e) {
+        // Jangan buat ripple jika ini link eksternal atau anchor
+        if (el.tagName === 'A' && el.getAttribute('href')?.startsWith('http')) return;
+        
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.position = 'absolute';
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.style.background = 'rgba(6, 182, 212, 0.15)';
+        ripple.style.borderRadius = '50%';
+        ripple.style.transform = 'scale(0)';
+        ripple.style.transition = 'transform 0.4s ease-out, opacity 0.4s';
+        ripple.style.pointerEvents = 'none';
+        ripple.style.zIndex = '1';
+        
+        const pos = window.getComputedStyle(this).position;
+        if (pos === 'static') this.style.position = 'relative';
+        this.style.overflow = 'hidden';
+        
+        this.appendChild(ripple);
+        
+        requestAnimationFrame(() => {
+          ripple.style.transform = 'scale(4)';
+          ripple.style.opacity = '0';
+        });
+        
+        setTimeout(() => ripple.remove(), 400);
+      });
+    });
 
-posts
-  .filter(p => p.status === "publish")
-  .slice()
-  .reverse()
-  .forEach(p => {
-    container.innerHTML += `
-      <div class="card">
-        <h2><a href="${p.url}">${p.title}</a></h2>
-        <p>${p.desc}</p>
-      </div>
-    `;
-  });
+    console.log('✅ AMDZIKR — amdzikr.pages.dev — Ready!');
+  })();
 </script>
+
 
 </body>
 </html>
