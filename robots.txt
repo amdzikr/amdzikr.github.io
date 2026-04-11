@@ -55,6 +55,8 @@ Allow: /favicon.ico
 Allow: /favicon.svg
 Allow: /apple-touch-icon.png
 Allow: /amdzikr-web/*
+Disallow: /README.md
+Disallow: /collabs-partners-team-and-you*
 Disallow: /B*
 Disallow: /b*
 Disallow: /D*
