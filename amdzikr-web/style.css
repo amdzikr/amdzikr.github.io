@@ -1,0 +1,187 @@
+
+
+        /* 1. DEFAULT SLATE */
+        :root { 
+            --bg: #0f1117; --text: #eceff4; --text-muted: #a3a8b5;
+            --amdz-accent: #ccff00; --amdz-card-bg: #1a1c23; 
+            --amdz-border: #2e3440; --line-lime: #a3be8c; 
+            --line-blue: #81a1c1; --line-red: #bf616a; 
+            --line-silver: #4c566a; --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        /* 2. CYBER THEME */
+        body.theme-cyber { 
+            --bg: #0b0e14; --text: #ffffff; --text-muted: #8b92a5;
+            --amdz-accent: #00d4ff; --amdz-card-bg: #151921; 
+            --amdz-border: #1f242d; --line-lime: #32ff00; 
+            --line-blue: #00d4ff; --line-red: #ff3e3e; 
+            --line-silver: #e0e0e0; --glass: rgba(0, 212, 255, 0.03);
+        }
+
+        /* 3. NORD THEME */
+        body.theme-nord { 
+            --bg: #1a1b26; --text: #e5e9f0; --text-muted: #9aa5ce;
+            --amdz-accent: #7aa2f7; --amdz-card-bg: #24283b; 
+            --amdz-border: #414868; --line-lime: #9ece6a; 
+            --line-blue: #7dcfff; --line-red: #f7768e; 
+            --line-silver: #565f89; --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        /* 4. RED CODE THEME */
+        body.theme-red { 
+            --bg: #0a0505; --text: #ffffff; --text-muted: #b38888;
+            --amdz-accent: #ff3e3e; --amdz-card-bg: #CACF00; 
+            --amdz-border: #250f0f; --line-lime: #ff3e3e; 
+            --line-blue: #800000; --line-red: #ff0000; 
+            --line-silver: #4a1a1a; --glass: rgba(255, 62, 62, 0.05);
+        }
+
+/* 5. WHITEHAT THEME - HIGH CONTRAST YELLOW UPGRADE */
+body.theme-whitehat { 
+    --bg: #ffffff; 
+    --text: #000000;     
+    --text-muted: #4b5563;
+    
+    
+    --amdz-accent: #d97706;   
+    --amdz-card-bg: #fffbeb;  
+    --amdz-border: #fcd34d;   
+    
+    --line-lime: #059669; 
+    --line-blue: #2563eb; 
+    --line-red: #dc2626; 
+    --line-silver: #d1d5db; 
+    --glass: rgba(252, 211, 77, 0.1);
+}
+
+
+body.theme-whitehat .logo span {
+    color: #b45309;
+    text-shadow: 1px 1px 0px #fff;
+}
+
+body.theme-whitehat #typing-container {
+    color: #d97706;
+    background: #fff8e1; 
+    padding: 2px 10px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+body.theme-whitehat .skill-card {
+    border: 2px solid #fcd34d !important;
+    background: #ffffff;
+}
+
+body.theme-whitehat .bar-bg {
+    background: #fef3c7; 
+}
+
+
+body.theme-whitehat .post-data h3 {
+    color: #92400e;
+}
+
+
+
+        * {
+            max-width: 100vw !important;
+            box-sizing: border-box !important;
+            overflow-wrap: break-word !important;
+            word-wrap: break-word !important;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body, main {
+            width: 100% !important;
+            overflow-x: hidden !important;
+            position: relative !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        body { 
+            background: var(--bg); 
+            color: var(--text); 
+            transition: background 0.4s ease, color 0.4s ease; 
+            font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+            line-height: 1.6; 
+        }
+
+  
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 5%; width: 100%; }
+        .spacer { height: clamp(40px, 6vh, 60px); }
+        .line { width: 100%; height: 1px; border: none; margin: 20px 0; background: var(--line-silver); opacity: 0.5; }
+
+     
+        header { text-align: center; padding: clamp(40px, 8vh, 80px) 0 20px; }
+        .logo h1 a { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; text-decoration: none; color: var(--text); letter-spacing: -4px; transition: color 0.4s ease;}
+        .logo span { color: var(--amdz-accent); }
+        #typing-container { font-size: 1.1rem; font-weight: 700; color: var(--amdz-accent); margin-top: 15px; letter-spacing: 2px; min-height: 1.5em; }
+
+   
+        .top-nav-center a { color: var(--line-blue); font-weight: 800; text-decoration: none; text-transform: uppercase; font-size: clamp(16px, 2.5vw, 22px); padding: 10px 5px; transition: 0.2s; }
+        .top-nav-center a:not(:last-child)::after { content: "/"; margin-left: 15px; margin-right: 10px; color: var(--text-muted); transition: color 0.4s ease; }
+        .top-nav-center a:active { border-bottom: 4px solid var(--line-blue); }
+
+     
+        .hobby-heading { text-align: center; color: var(--amdz-accent); font-size: 0.85rem; font-family: serif; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9; }
+        .skills-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .skill-card { background: var(--amdz-card-bg); padding: 25px; border: 1px solid var(--amdz-border); border-radius: 15px; transition: background 0.4s ease, border 0.4s ease; }
+        .skill-info { display: flex; justify-content: space-between; font-weight: 900; font-size: 0.75rem; text-transform: uppercase; color: var(--text); }
+        .bar-bg { width: 100%; height: 5px; background: rgba(128, 128, 128, 0.2); margin-top: 12px; border-radius: 10px; overflow: hidden; }
+        .bar-fill { height: 100%; width: 0; transition: 2s cubic-bezier(0.1, 0.42, 0.41, 1); }
+
+       
+        .tools-main-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; margin: 40px 0; }
+        .tool-card { background: var(--amdz-card-bg); border: 1px solid var(--amdz-border); padding: 35px 15px; border-radius: 20px; text-align: center; text-decoration: none; transition: 0.4s; }
+        .tool-card:hover { border-color: var(--amdz-accent); transform: translateY(-5px); background: var(--glass); }
+        .tool-card i { display: block; font-size: 2.2rem; margin-bottom: 15px; font-style: normal; }
+        .tool-card span { color: var(--text); font-weight: 900; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; transition: color 0.4s ease;}
+
+       
+        .search-container { max-width: 650px; margin: 0 auto; position: relative; }
+        .search-container input { width: 100%; padding: 18px 30px; border-radius: 50px; background: var(--amdz-card-bg); border: 1px solid var(--amdz-border); color: var(--text); text-align: center; font-size: 1rem; transition: 0.3s; }
+        .search-container input:focus { border-color: var(--amdz-accent); outline: none; }
+        .search-container input::placeholder { color: var(--text-muted); }
+
+        
+        .amdz-section { margin: 80px 0; padding: 20px 0; }
+        .amdz-anchor-label { text-align: center; margin-bottom: 50px; opacity: 0.2; }
+        .anchor-text { font-size: 0.65rem; letter-spacing: 12px; font-weight: 900; color: var(--text-muted); }
+        .amdz-flex-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 35px; max-width: 1250px; margin: 0 auto; padding: 0 20px; }
+        
+        .partner-card { flex: 1 1 320px; max-width: 420px; background: var(--amdz-card-bg); border: 1px solid var(--amdz-border); border-radius: 14px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .partner-card:hover { transform: translateY(-10px); border-color: var(--amdz-accent); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); }
+        .partner-link { text-decoration: none; display: block; }
+        .partner-media { width: 100%; height: 220px; overflow: hidden; border-bottom: 3px solid var(--amdz-accent); }
+        .partner-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .partner-info { padding: 25px; text-align: left; }
+        .partner-title { color: var(--amdz-accent); font-size: 0.9rem; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; }
+        .partner-desc { color: var(--text-muted); font-size: 0.8rem; line-height: 1.7; margin: 0; transition: color 0.4s ease; }
+
+        /* PROJECT PORTFOLIO */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(clamp(280px, 100%, 350px), 1fr)); gap: 25px; margin: 40px 0; }
+        .post-card { background: var(--amdz-card-bg); border-radius: 20px; overflow: hidden; border: 1px solid var(--amdz-border); transition: 0.4s; }
+        .post-card img { width: 100%; height: 230px; object-fit: cover; filter: grayscale(1) contrast(1.4) brightness(0.8); transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .post-card:hover img { filter: grayscale(0) contrast(1.1) brightness(1); transform: scale(1.05); }
+        .post-card:hover { border-color: var(--amdz-accent); transform: translateY(-8px); }
+        .post-data { padding: 25px; border-top: 1px solid var(--amdz-border); }
+        .post-data h3 { font-size: 1.1rem; color: var(--amdz-accent); margin-bottom: 10px; letter-spacing: 1px; }
+        .post-data p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; transition: color 0.4s ease; }
+
+        /* FOOTER & UTILS */
+        .footer-nav { display: flex; justify-content: center; gap: 12px; margin: 50px 0; flex-wrap: wrap; }
+        .pill { padding: 12px 24px; background: var(--glass); border: 1px solid var(--amdz-border); border-radius: 50px; text-decoration: none; color: var(--text); font-size: 0.8rem; font-weight: 800; transition: 0.3s; }
+        .pill:hover, .pill.active { background: var(--amdz-accent); color: #000; box-shadow: 0 0 15px rgba(204, 255, 0, 0.2); }
+        .cursor { animation: blink 0.8s infinite; color: var(--text); }
+        .amdz-security-tag { text-align: center; margin-top: 50px; opacity: 0.3; letter-spacing: 5px; font-weight: 900; color: var(--text-muted); }
+        
+        .ads-wrapper { width: 100%; margin: 30px 0; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; }
+        .ads-label { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; font-weight: 800; transition: color 0.4s ease; }
+
+        @keyframes blink { 50% { opacity: 0; } }
+        @media (max-width: 600px) { .project-grid { grid-template-columns: 1fr; } }
