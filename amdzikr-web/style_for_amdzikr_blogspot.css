@@ -1,0 +1,83 @@
+
+.ets-footer {
+  background-color: #000;
+  color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+  font-family: sans-serif;
+  border-top: 2px solid #333;
+}
+
+.zsh-terminal-path {
+  display: inline-block;
+  text-align: left;
+  margin-top: 10px;
+  position: relative;
+}
+
+.zsh-top-text {
+  font-size: 0.8rem;
+  color: #888;
+  /* Memberi padding agar garis vertikal sejajar dengan huruf pertama 'S' tapi tidak menimpa */
+  padding-left: 6px; 
+  margin-bottom: 3px;
+}
+
+.zsh-link-container {
+  position: relative;
+  /* Padding kiri disesuaikan agar pas dengan lengkungan */
+  padding-left: 22px; 
+  padding-top: 5px;
+}
+
+/* Garis Lengkung Juice (L-Shape Round) */
+.zsh-curve-round {
+  position: absolute;
+  left: 5px; /* Sejajar dengan huruf 'S' di atas */
+  top: -8px; /* Mulai tepat di bawah teks tanpa menyentuh huruf */
+  width: 15px; /* Jarak tarikan garis horizontal ke kanan */
+  height: 20px; /* Panjang tarikan garis vertikal ke bawah */
+  border-left: 1.5px solid #ff4d4d;
+  border-bottom: 1.5px solid #ff4d4d;
+  border-bottom-left-radius: 10px; /* Membuat lengkungan halus */
+}
+
+.amdzikr-glitch-box {
+  display: inline-block;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: #00e5ff;
+  text-decoration: none;
+  line-height: 1;
+}
+
+/* Utils */
+.ets-container { max-width: 1100px; margin: 0 auto; }
+.ets-title { font-size: 1.3rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+.ets-link-brand { color: #eee; text-decoration: none; font-weight: bold; }
+.ets-divider { width: 50px; border: 0; border-top: 1px solid #ff4d4d; margin: 20px auto; }
+.ets-tagline { font-size: 0.85rem; color: #aaa; margin-bottom: 5px; }
+
+/* Glitch Core */
+.amdzikr-glitch { display: grid; grid-template-columns: 1fr; }
+.amdzikr-glitch span {
+  grid-row-start: 1; grid-column-start: 1;
+  --stack-height: calc(100% / var(--stacks) - 1px);
+  --inverse-index: calc((var(--stacks) - 1) - var(--index));
+  --clip-top: calc(var(--stack-height) * var(--index));
+  --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+  clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+  animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch-loop 3s ease infinite 2s alternate-reverse;
+}
+@keyframes stack {
+  0% { opacity: 0; transform: translateX(-20%); text-shadow: -2px 0 #ff4d4d, 2px 0 #00e5ff; }
+  60% { opacity: 0.5; transform: translateX(20%); }
+  80% { transform: none; opacity: 1; text-shadow: 2px 0 #ff4d4d, -2px 0 #00e5ff; }
+  100% { text-shadow: none; }
+}
+@keyframes glitch-loop {
+  0% { text-shadow: -2px 0 #ff4d4d, 2px 0 #00e5ff; transform: translate(2px); }
+  2% { text-shadow: 2px 0 #ff4d4d, -2px 0 #00e5ff; }
+  4%, 100% { text-shadow: none; transform: none; }
+}
