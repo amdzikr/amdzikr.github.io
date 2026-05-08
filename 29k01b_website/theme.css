@@ -1,8 +1,102 @@
-/* ============================================
-   element.css – FINAL BRUTAL COMPLETE
-   Arrow 27A4 di UL LI STRONG | Animasi Footer Tetap
-   Full Kontras | Safe AdSense | Speed Test OK
-   ============================================ */
+/* ==========================================
+   FOOTER HIGHLIGHT — Garis Lalu Lintas Smooth
+   ========================================== */
+#footer.highlight-on {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 4 Garis — sekarang 15 detik per garis, total 60 detik tetap */
+#footer.highlight-on::before,
+#footer.highlight-on::after,
+#footer.highlight-on .traffic-line-1,
+#footer.highlight-on .traffic-line-2 {
+  content: "";
+  position: absolute;
+  background: linear-gradient(90deg, transparent, #0d47a1, #42a5f5, #0d47a1, transparent);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Garis 1: Atas — kiri ke kanan */
+#footer.highlight-on::before {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #0d47a1, #42a5f5, #0d47a1, transparent);
+  animation: line-run-right 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Garis 2: Kanan — atas ke bawah */
+#footer.highlight-on::after {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #0d47a1, #42a5f5, #0d47a1, transparent);
+  animation: line-run-down 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: 3.75s;
+}
+
+/* Garis 3: Bawah — kanan ke kiri */
+.traffic-line-1 {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #0d47a1, #42a5f5, #0d47a1, transparent);
+  animation: line-run-left 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: 7.5s;
+}
+
+/* Garis 4: Kiri — bawah ke atas */
+.traffic-line-2 {
+  left: 0;
+  bottom: -100%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(0deg, transparent, #0d47a1, #42a5f5, #0d47a1, transparent);
+  animation: line-run-up 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: 11.25s;
+}
+
+/* Keyframes — smooth easing */
+@keyframes line-run-right {
+  0%   { left: -100%; opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+@keyframes line-run-down {
+  0%   { top: -100%; opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes line-run-left {
+  0%   { right: -100%; opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { right: 100%; opacity: 0; }
+}
+
+@keyframes line-run-up {
+  0%   { bottom: -100%; opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { bottom: 100%; opacity: 0; }
+}
+
+
+
+
+
+
+
 
 /* ---------- RESET ---------- */
 * {
@@ -13,7 +107,7 @@
 
 :root {
     --list-icon: "\27A4";
-    --list-color: #E65100;
+    --list-color: #00C807;
     --list-gap: 28px;
 }
 
@@ -110,126 +204,6 @@ strong, b {
     font-weight: 700;
 }
 
-/* ========== POLICY LINKS FOOTER ========== */
-.policy-links ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px 14px;
-    font-size: 0.75rem;
-}
-.policy-links li {
-    position: relative;
-}
-.policy-links li::before {
-    content: none !important;
-}
-.policy-links a {
-    color: #0D47A1;
-    text-decoration: none;
-    padding: 4px 8px;
-    transition: 0.15s ease;
-}
-.policy-links a:hover {
-    color: #D32F2F;
-    background: #FFF3E0;
-    border-radius: 4px;
-}
-.policy-links li:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    right: -8px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2px;
-    height: 10px;
-    background: #BDBDBD;
-}
-
-/* ========== FOOTER HIGHLIGHT – ANIMASI TRAFFIC LINES TETAP JALAN ========== */
-#footer.highlight-on {
-    position: relative;
-    overflow: hidden;
-}
-
-#footer.highlight-on::before,
-#footer.highlight-on::after,
-#footer.highlight-on .traffic-line-1,
-#footer.highlight-on .traffic-line-2 {
-    content: "";
-    position: absolute;
-    background: linear-gradient(90deg, transparent, #00E676, #00C853, #00E676, transparent);
-    pointer-events: none;
-    opacity: 0;
-}
-
-#footer.highlight-on::before {
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    animation: line-run-right 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-#footer.highlight-on::after {
-    top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, #00E676, #00C853, #00E676, transparent);
-    animation: line-run-down 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    animation-delay: 3.75s;
-}
-
-#footer.highlight-on .traffic-line-1 {
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    height: 2px;
-    animation: line-run-left 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    animation-delay: 7.5s;
-}
-
-#footer.highlight-on .traffic-line-2 {
-    left: 0;
-    bottom: -100%;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(0deg, transparent, #00E676, #00C853, #00E676, transparent);
-    animation: line-run-up 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    animation-delay: 11.25s;
-}
-
-/* ANIMASI KEYFRAMES – TETAP ADA */
-@keyframes line-run-right {
-    0%   { left: -100%; opacity: 0; }
-    5%   { opacity: 1; }
-    95%  { opacity: 1; }
-    100% { left: 100%; opacity: 0; }
-}
-
-@keyframes line-run-down {
-    0%   { top: -100%; opacity: 0; }
-    5%   { opacity: 1; }
-    95%  { opacity: 1; }
-    100% { top: 100%; opacity: 0; }
-}
-
-@keyframes line-run-left {
-    0%   { right: -100%; opacity: 0; }
-    5%   { opacity: 1; }
-    95%  { opacity: 1; }
-    100% { right: 100%; opacity: 0; }
-}
-
-@keyframes line-run-up {
-    0%   { bottom: -100%; opacity: 0; }
-    5%   { opacity: 1; }
-    95%  { opacity: 1; }
-    100% { bottom: 100%; opacity: 0; }
-}
 
 /* ========== HEADER UTILS ========== */
 .header-utils {
