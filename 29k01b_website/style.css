@@ -222,44 +222,49 @@ strong, b {
 
 
 /* ========== HEADER UTILS ========== */
-.header-utils {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-    align-items: center;
-    margin-top: 6px;
-    font-size: 0.75rem;
+
+/* ========== POLICY LINKS — Modern, Fast, Responsive ========== */
+.policy-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 20px;
+  margin-top: 20px;
+  padding: 0;
 }
-.header-utils .hu-policy,
-.header-utils .hu-home {
-    padding: 6px 14px;
-    border-radius: 20px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.15s ease;
-    font-family: inherit;
-    font-size: inherit;
-    cursor: pointer;
-    border: none;
-    background: none;
+
+.policy-links a {
+  display: inline-block;
+  padding: 10px 22px;
+  font-size: 1rem;              /* desktop: gede */
+  font-weight: 500;
+  color: #334155;
+  background: #f1f5f9;
+  border: 2px solid #e2e8f0;
+  border-radius: 100px;         /* pil shape modern */
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
 }
-.hu-policy {
-    background: #E8F5E9;
-    color: #1B5E20;
-    border: 1px solid #A5D6A7 !important;
+
+.policy-links a:hover,
+.policy-links a:focus-visible {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+  color: #0f172a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
-.hu-policy:hover {
-    background: #C8E6C9;
-    border-color: #2E7D32 !important;
-}
-.hu-home {
-    background: #D32F2F;
-    color: #FFFFFF;
-    display: inline-flex;
-    align-items: center;
-}
-.hu-home:hover {
-    background: #B71C1C;
+
+/* ========== MOBILE ========== */
+@media (max-width: 640px) {
+  .policy-links {
+    gap: 8px 12px;
+  }
+  .policy-links a {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
 }
 
 /* ========== SEMUA GAYA LAINNYA TETAP ADA ========== */
