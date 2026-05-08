@@ -96,23 +96,7 @@ pre, code, .output-box, .code-block {
   padding-bottom: 16px;
 }
 
-.widget-content ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.widget-content li a {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: #334155;
-  text-decoration: none;
-  transition: color 0.15s;
-}
-.widget-content li a:hover {
-  color: #0f172a;
-}
+
 
 .gsc-search-box { width: 100%; max-width: 400px; }
 .gsc-input input {
