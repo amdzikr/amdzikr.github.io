@@ -1,0 +1,497 @@
+/* ==========================================
+   FOOTER HIGHLIGHT — Garis Lalu Lintas Smooth
+   (GPU accelerated & respects reduced motion)
+   ========================================== */
+#footer.highlight-on {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 4 Garis — 15 detik per garis, total 60 detik */
+#footer.highlight-on::before,
+#footer.highlight-on::after,
+#footer.highlight-on .traffic-line-1,
+#footer.highlight-on .traffic-line-2 {
+  content: "";
+  position: absolute;
+  background: linear-gradient(90deg, transparent, #0d47a1, #42a5f5, #0d47a1, transparent);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Garis 1: Atas — kiri ke kanan */
+#footer.highlight-on::before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, #0d47a1, #42a5f5, #0d47a1, transparent);
+  animation: line-run-right 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Garis 2: Kanan — atas ke bawah */
+#footer.highlight-on::after {
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  transform: translateY(-100%);
+  background: linear-gradient(180deg, transparent, #0d47a1, #42a5f5, #0d47a1, transparent);
+  animation: line-run-down 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: 3.75s;
+}
+
+/* Garis 3: Bawah — kanan ke kiri */
+.traffic-line-1 {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  transform: translateX(100%);
+  background: linear-gradient(270deg, transparent, #0d47a1, #42a5f5, #0d47a1, transparent);
+  animation: line-run-left 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: 7.5s;
+}
+
+/* Garis 4: Kiri — bawah ke atas */
+.traffic-line-2 {
+  left: 0;
+  bottom: 0;
+  width: 2px;
+  height: 100%;
+  transform: translateY(100%);
+  background: linear-gradient(0deg, transparent, #0d47a1, #42a5f5, #0d47a1, transparent);
+  animation: line-run-up 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: 11.25s;
+}
+
+/* Keyframes — smooth easing menggunakan transform */
+@keyframes line-run-right {
+  0%   { transform: translateX(-100%); opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes line-run-down {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+@keyframes line-run-left {
+  0%   { transform: translateX(100%); opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes line-run-up {
+  0%   { transform: translateY(100%); opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { transform: translateY(-100%); opacity: 0; }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  #footer.highlight-on::before,
+  #footer.highlight-on::after,
+  #footer.highlight-on .traffic-line-1,
+  #footer.highlight-on .traffic-line-2 {
+    animation: none !important;
+    opacity: 0;
+  }
+}
+
+/* ---------- RESET (rapih, hanya satu) ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --list-icon: "\27A4";
+    --list-color: #00C807;
+    --list-gap: 28px;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    background: #f8fafc;
+    color: #0f172a;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+}
+
+/* ========== WIDGET CONTENT ========== */
+.widget-content ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.widget-content li a {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #334155;
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.widget-content li a:hover {
+    color: #0f172a;
+}
+
+/* ========== ARROW 27A4 UNTUK UL, LI, STRONG ========== */
+.post-body ul,
+.post-body li,
+.post-body strong,
+.list-custom {
+    position: relative !important;
+    display: block;
+    list-style: none !important;
+    list-style-type: none !important;
+    padding-left: var(--list-gap) !important;
+    margin: 10px 0 !important;
+    line-height: 1.6;
+}
+
+/* Arrow untuk UL */
+.post-body ul::before {
+    content: var(--list-icon) !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--list-color);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* Arrow untuk LI */
+.post-body li::before {
+    content: var(--list-icon) !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--list-color);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* Arrow untuk STRONG */
+.post-body strong::before {
+    content: var(--list-icon) !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--list-color);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* Jika UL punya LI di dalemnya, arrow UL sembunyi (biar gak double) */
+.post-body ul:has(li)::before {
+    content: none !important;
+}
+.post-body ul:has(li) {
+    padding-left: 0 !important;
+    margin: 0 !important;
+}
+
+/* STRONG tetap warna merah kontras */
+strong, b {
+    color: #B71C1C;
+    font-weight: 700;
+}
+
+
+/* ========== HEADER UTILS ========== */
+.header-utils {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 6px;
+    font-size: 0.75rem;
+}
+.header-utils .hu-policy,
+.header-utils .hu-home {
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.15s ease;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+.hu-policy {
+    background: #E8F5E9;
+    color: #1B5E20;
+    border: 1px solid #A5D6A7 !important;
+}
+.hu-policy:hover {
+    background: #C8E6C9;
+    border-color: #2E7D32 !important;
+}
+.hu-home {
+    background: #D32F2F;
+    color: #FFFFFF;
+    display: inline-flex;
+    align-items: center;
+}
+.hu-home:hover {
+    background: #B71C1C;
+}
+
+/* ========== SEMUA GAYA LAINNYA TETAP ADA ========== */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 20px;
+    background: #ffffff;
+    min-height: 100vh;
+    border-left: 1px solid #e2e8f0;
+    border-right: 1px solid #e2e8f0;
+}
+.site-title, .site-title a {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #0f172a;
+    text-decoration: none;
+    letter-spacing: -0.03em;
+}
+.site-description {
+    color: #475569;
+    font-size: 0.9rem;
+}
+.nav-area {
+    margin-bottom: 28px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 16px;
+}
+.gsc-search-box { width: 100%; max-width: 400px; }
+.gsc-input input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid #cbd5e1;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+.post-outer {
+    margin-bottom: 36px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #f1f5f9;
+}
+.post-title {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+.post-title a { color: inherit; text-decoration: none; }
+.date-header {
+    font-size: 0.8rem;
+    color: #475569; /* sedikit lebih gelap dari #64748b untuk kontras */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.post-body {
+    line-height: 1.7;
+    font-size: 1rem;
+    color: #1e293b;
+}
+.post-body img,
+.post-body iframe,
+.post-body video,
+.post-body table {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 10px;
+}
+.post-body pre,
+.post-body .output-box,
+.post-body .code-block {
+    background: #0f172a;
+    color: #4ade80;
+    padding: 16px;
+    border-radius: 10px;
+    overflow-x: auto;
+}
+.post-icons {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 10px;
+}
+.item-action a,
+.item-control a {
+    display: inline-flex;
+    align-items: center;
+    opacity: 0.3;
+    transition: opacity 0.2s;
+}
+.item-action a:hover,
+.item-control a:hover { opacity: 1; }
+.post-share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+.share-button {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #334155;
+    background: #f1f5f9;
+    border: 2px solid #e2e8f0;
+    text-decoration: none;
+}
+.jump-link { margin-top: 16px; }
+.jump-link a {
+    display: inline-block;
+    padding: 10px 24px;
+    background: #1e40af;
+    color: #ffffff;
+    border-radius: 100px;
+    text-decoration: none;
+}
+.tool-toggle-btn { display: none; }
+.post-body .tool-toggle-btn {
+    display: inline-block;
+    margin: 16px 0;
+    padding: 10px 28px;
+    background: #1e40af;
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.collapsible-tool-wrapper {
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+.collapsible-tool-wrapper.collapsed {
+    max-height: 0 !important;
+    opacity: 0;
+}
+.footer-area {
+    margin-top: 48px;
+    border-top: 2px solid #e2e8f0;
+    padding-top: 18px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+#cookieChoiceInfo, .cookie-choices-info {
+    display: none !important;
+}
+#customCookieBanner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0f172a;
+    color: #f1f5f9;
+    padding: 16px 24px;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    animation: slideUp 0.4s ease;
+}
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+#customCookieBanner button {
+    padding: 10px 22px;
+    border-radius: 100px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: inherit;
+    border: none;
+}
+.btn-accept { background: #4ade80; color: #0f172a; }
+.btn-reject {
+    background: transparent;
+    color: #f1f5f9;
+    border: 2px solid rgba(241,245,249,0.4) !important;
+}
+@media (max-width: 640px) {
+    .container { padding: 16px 14px; border: none; }
+    .post-title { font-size: 1.3rem; }
+    #customCookieBanner { flex-direction: column; text-align: center; }
+    .widget-content ul { flex-direction: column; gap: 10px; }
+}
+
+/* ========== PERFORMANCE & KONTRAST ========== */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    content-visibility: auto;
+}
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #000;
+    outline-offset: 2px;
+}
+
+/* ---------- TYPOGRAPHY (asli) ---------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 0.5em;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: 1.8rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.1rem; }
+
+p { margin-bottom: 1em; }
+
+a {
+  color: #1e40af;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+a:hover { color: #0f172a; }
+
+pre, code, .output-box, .code-block {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+/* ---------- KOMENTAR & STATUS (tidak ada perubahan) ---------- */
+.status-msg-wrap { ... } /* tetap seperti asli */
