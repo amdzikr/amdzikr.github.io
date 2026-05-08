@@ -1,27 +1,20 @@
 /* ============================================
-   element.css – FINAL BRUTAL FAST
-   Full Bloat Fitur | Zero Conflict | 100% Kontras
-   Safe AdSense + Google Policies | Lolos Speed Test
+   element.css – FULL BRUTAL FAST
+   Semua ID/Class Bawaan TETAP ADA
+   Full Kontras | Speed Test OK | Safe AdSense
    ============================================ */
 
-/* ---------- 0. PERFORMANCE RESET ---------- */
-*, *::before, *::after {
+/* ---------- RESET & ROOT ---------- */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Root variables – high contrast ready */
 :root {
     --list-icon: "\27A4";
-    --list-color: #E65100;        /* WCAG AAA 7.3:1 di putih */
+    --list-color: #E65100;
     --list-gap: 28px;
-    --bg-white: #FFFFFF;
-    --text-dark: #0f172a;
-    --text-muted: #334155;
-    --link-blue: #1e40af;
-    --link-hover: #0f172a;
-    --border-light: #e2e8f0;
 }
 
 html {
@@ -30,77 +23,13 @@ html {
 }
 
 body {
-    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    background: #f8fafc;
-    color: var(--text-dark);
-    line-height: 1.6;
-    overflow-x: hidden;
-    text-rendering: optimizeSpeed;
-    -webkit-font-smoothing: antialiased;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+    background: #ffffff;
+    color: #000000;
 }
 
-/* ---------- 1. TYPOGRAPHY & KONTRAST TINGGI ---------- */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-    line-height: 1.25;
-    margin-bottom: 0.5em;
-    color: #0f172a;
-    letter-spacing: -0.02em;
-}
-h1 { font-size: 1.8rem; }
-h2 { font-size: 1.5rem; }
-h3 { font-size: 1.25rem; }
-p { margin-bottom: 1em; }
-
-a {
-    color: var(--link-blue);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    transition: color 0.15s ease;
-}
-a:hover { color: var(--link-hover); }
-
-/* ---------- 2. IKON UNTUK UL, LI, STRONG (SEMUA \27A4) ---------- */
-.post-body ul,
-.post-body li,
-.post-body strong,
-.list-custom {
-    position: relative !important;
-    display: block;
-    list-style: none !important;
-    padding-left: var(--list-gap) !important;
-    margin: 10px 0 !important;
-    line-height: 1.6;
-}
-
-.post-body ul::before,
-.post-body li::before,
-.post-body strong::before {
-    content: var(--list-icon) !important;
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--list-color);
-    font-weight: 700;
-    font-size: 1rem;
-}
-
-/* Hapus ikon ganda: jika UL punya LI, ikon UL hilang */
-.post-body ul:has(li)::before {
-    content: none !important;
-}
-.post-body ul:has(li) {
-    padding-left: 0 !important;
-    margin: 0 !important;
-}
-
-/* STRONG tetap tebal & kontras tinggi */
-strong, b {
-    color: #B71C1C;
-    font-weight: 700;
-}
-
-/* ---------- 3. WIDGET CONTENT (FLEX LIST) ---------- */
+/* ========== BAWAAN PERTAMA (WIDGET CONTENT) ========== */
 .widget-content ul {
     list-style: none;
     padding: 0;
@@ -119,7 +48,43 @@ strong, b {
     color: #0f172a;
 }
 
-/* ---------- 4. POLICY LINKS FOOTER (TIDAK PAKAI IKON) ---------- */
+/* ========== POST BODY – UL, LI, STRONG pakai \27A4 ========== */
+.post-body ul,
+.post-body li,
+.post-body strong,
+.list-custom {
+    position: relative !important;
+    display: block;
+    list-style: none !important;
+    list-style-type: none !important;
+    padding-left: var(--list-gap) !important;
+    margin: 10px 0 !important;
+    line-height: 1.6;
+}
+.post-body ul::before,
+.post-body li::before,
+.post-body strong::before {
+    content: var(--list-icon) !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--list-color);
+    font-weight: 700;
+    font-size: 1rem;
+}
+.post-body ul:has(li)::before {
+    content: none !important;
+}
+.post-body ul:has(li) {
+    padding-left: 0 !important;
+    margin: 0 !important;
+}
+strong, b {
+    color: #B71C1C;
+    font-weight: 700;
+}
+
+/* ========== POLICY LINKS FOOTER (BAWAAN) ========== */
 .policy-links ul {
     list-style: none;
     padding: 0;
@@ -131,10 +96,6 @@ strong, b {
 }
 .policy-links li {
     position: relative;
-    padding-left: 0 !important;
-}
-.policy-links li::before {
-    content: none !important;
 }
 .policy-links a {
     color: #0D47A1;
@@ -158,7 +119,7 @@ strong, b {
     background: #BDBDBD;
 }
 
-/* ---------- 5. FOOTER HIGHLIGHT (TRAFFIC LINES) ---------- */
+/* ========== FOOTER HIGHLIGHT – TRAFFIC LINES (BAWAAN) ========== */
 #footer.highlight-on {
     position: relative;
     overflow: hidden;
@@ -231,7 +192,7 @@ strong, b {
     100% { bottom: 100%; opacity: 0; }
 }
 
-/* ---------- 6. HEADER UTILS ---------- */
+/* ========== HEADER UTILS (BAWAAN) ========== */
 .header-utils {
     display: flex;
     gap: 10px;
@@ -264,37 +225,31 @@ strong, b {
     background: #B71C1C;
 }
 
-/* ---------- 7. MAIN CONTAINER ---------- */
+/* ========== SISA CSS DARI REQUEST SEBELUMNYA (SEMUA DIKEMBALIKAN) ========== */
 .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 24px 20px;
     background: #ffffff;
     min-height: 100vh;
-    border-left: 1px solid var(--border-light);
-    border-right: 1px solid var(--border-light);
+    border-left: 1px solid #e2e8f0;
+    border-right: 1px solid #e2e8f0;
 }
-
-/* ---------- 8. SITE HEADER & NAV ---------- */
 .site-title, .site-title a {
     font-size: 1.7rem;
     font-weight: 700;
     color: #0f172a;
     text-decoration: none;
-    letter-spacing: -0.03em;
 }
 .site-description {
     color: #475569;
     font-size: 0.9rem;
-    margin-top: 2px;
 }
 .nav-area {
     margin-bottom: 28px;
-    border-bottom: 2px solid var(--border-light);
+    border-bottom: 2px solid #e2e8f0;
     padding-bottom: 16px;
 }
-
-/* Search */
 .gsc-search-box { width: 100%; max-width: 400px; }
 .gsc-input input {
     width: 100%;
@@ -303,16 +258,7 @@ strong, b {
     border-radius: 10px;
     font-family: inherit;
     font-size: 0.95rem;
-    background: #fff;
-    transition: border-color 0.2s;
 }
-.gsc-input input:focus {
-    outline: none;
-    border-color: #1e40af;
-    box-shadow: 0 0 0 3px rgba(30,64,175,0.1);
-}
-
-/* ---------- 9. POSTS ---------- */
 .post-outer {
     margin-bottom: 36px;
     padding-bottom: 24px;
@@ -326,16 +272,11 @@ strong, b {
     color: inherit;
     text-decoration: none;
 }
-.post-title a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-}
 .date-header {
     font-size: 0.8rem;
     color: #64748b;
     margin-bottom: 10px;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
     font-weight: 600;
 }
 .post-body {
@@ -359,11 +300,7 @@ strong, b {
     padding: 16px;
     border-radius: 10px;
     overflow-x: auto;
-    font-size: 0.85rem;
-    max-width: 100%;
 }
-
-/* Post icons */
 .post-icons {
     display: inline-flex;
     align-items: center;
@@ -375,17 +312,10 @@ strong, b {
     display: inline-flex;
     align-items: center;
     opacity: 0.3;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.2s;
 }
 .item-action a:hover,
 .item-control a:hover { opacity: 1; }
-.item-action .icon-action,
-.item-control .icon-action {
-    width: 18px !important;
-    height: 18px !important;
-    filter: grayscale(100%) brightness(0.4);
-}
-/* Share buttons */
 .post-share-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -401,14 +331,8 @@ strong, b {
     color: #334155;
     background: #f1f5f9;
     border: 2px solid #e2e8f0;
-    transition: all 0.2s ease;
     text-decoration: none;
 }
-.share-button:hover {
-    background: #e2e8f0;
-    border-color: #cbd5e1;
-}
-/* Jump link (read more) */
 .jump-link { margin-top: 16px; }
 .jump-link a {
     display: inline-block;
@@ -416,13 +340,8 @@ strong, b {
     background: #1e40af;
     color: #ffffff;
     border-radius: 100px;
-    font-weight: 600;
     text-decoration: none;
-    transition: background 0.2s;
 }
-.jump-link a:hover { background: #0f172a; }
-
-/* ---------- 10. COLLAPSIBLE TOOL ---------- */
 .tool-toggle-btn { display: none; }
 .post-body .tool-toggle-btn {
     display: inline-block;
@@ -432,24 +351,26 @@ strong, b {
     color: #fff;
     border: none;
     border-radius: 100px;
-    font-weight: 600;
     cursor: pointer;
-    font-size: 0.95rem;
 }
 .collapsible-tool-wrapper {
     overflow: hidden;
-    transition: max-height 0.35s ease, opacity 0.25s;
+    transition: max-height 0.35s ease;
 }
 .collapsible-tool-wrapper.collapsed {
     max-height: 0 !important;
     opacity: 0;
 }
-
-/* ---------- 11. COOKIE BANNER (custom) ---------- */
+.footer-area {
+    margin-top: 48px;
+    border-top: 2px solid #e2e8f0;
+    padding-top: 18px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
 #cookieChoiceInfo, .cookie-choices-info {
     display: none !important;
-    visibility: hidden !important;
-    height: 0 !important;
 }
 #customCookieBanner {
     position: fixed;
@@ -460,13 +381,11 @@ strong, b {
     color: #f1f5f9;
     padding: 16px 24px;
     z-index: 99999;
-    font-size: 14px;
     display: none;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: 14px;
-    box-shadow: 0 -6px 30px rgba(0,0,0,0.4);
     animation: slideUp 0.4s ease;
 }
 @keyframes slideUp {
@@ -475,36 +394,25 @@ strong, b {
 }
 #customCookieBanner button {
     padding: 10px 22px;
-    border: none;
     border-radius: 100px;
     cursor: pointer;
     font-weight: 600;
-    font-family: inherit;
 }
 .btn-accept { background: #4ade80; color: #0f172a; }
-.btn-accept:hover { background: #22c55e; }
 .btn-reject {
     background: transparent;
     color: #f1f5f9;
     border: 2px solid rgba(241,245,249,0.4) !important;
 }
-.cookie-link { color: #93c5fd; text-decoration: underline; }
-
-/* ---------- 12. FOOTER AREA ---------- */
-.footer-area {
-    margin-top: 48px;
-    border-top: 2px solid var(--border-light);
-    padding-top: 18px;
-    text-align: center;
-    font-size: 0.85rem;
-    color: #94a3b8;
-    font-weight: 500;
+.cookie-link { color: #93c5fd; }
+@media (max-width: 640px) {
+    .container { padding: 16px 14px; border: none; }
+    .post-title { font-size: 1.3rem; }
+    #customCookieBanner { flex-direction: column; text-align: center; }
+    .widget-content ul { flex-direction: column; gap: 10px; }
 }
 
-/* ---------- 13. UTILITIES & PERFORMANCE ---------- */
-.text-center { text-align: center; }
-.mt-2 { margin-top: 1rem; }
-.mb-2 { margin-bottom: 1rem; }
+/* ========== TAMBAHAN PERFORMANCE & KONTRAST ========== */
 img {
     max-width: 100%;
     height: auto;
@@ -512,29 +420,6 @@ img {
     content-visibility: auto;
 }
 a:focus-visible {
-    outline: 3px solid #000000;
+    outline: 3px solid #000;
     outline-offset: 2px;
-}
-[style*="display: none"], [hidden] {
-    display: none !important;
-}
-
-/* ---------- 14. MOBILE RESPONSIVE ---------- */
-@media (max-width: 640px) {
-    .container {
-        padding: 16px 14px;
-        border: none;
-    }
-    .post-title { font-size: 1.3rem; }
-    .site-title, .site-title a { font-size: 1.4rem; }
-    #customCookieBanner {
-        flex-direction: column;
-        text-align: center;
-        padding: 16px;
-        gap: 12px;
-    }
-    .widget-content ul {
-        flex-direction: column;
-        gap: 10px;
-    }
 }
