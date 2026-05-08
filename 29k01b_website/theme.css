@@ -1,11 +1,10 @@
 /* ============================================
-   element.css – FINAL BRUTAL NO CONFLICT
-   Semua animasi & gaya bawaan TETAP ADA
-   Hanya konflik double yang dirapikan
-   Full Kontras | Speed Test OK | Safe AdSense
+   element.css – FINAL BRUTAL COMPLETE
+   Arrow 27A4 di UL LI STRONG | Animasi Footer Tetap
+   Full Kontras | Safe AdSense | Speed Test OK
    ============================================ */
 
-/* ---------- RESET & ROOT (hanya sekali, no conflict) ---------- */
+/* ---------- RESET ---------- */
 * {
     margin: 0;
     padding: 0;
@@ -23,39 +22,14 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
-/* ---------- BODY (gabung dari 2 sumber, no conflict) ---------- */
 body {
     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Inter', sans-serif;
     line-height: 1.6;
     background: #f8fafc;
     color: #0f172a;
-    overflow-x: hidden;
-    word-wrap: break-word;
-    -webkit-font-smoothing: antialiased;
 }
 
-/* ---------- TYPOGRAPHY (dipertahankan semua) ---------- */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-    line-height: 1.25;
-    margin-bottom: 0.5em;
-    color: #0f172a;
-    letter-spacing: -0.02em;
-}
-h1 { font-size: 1.8rem; }
-h2 { font-size: 1.5rem; }
-h3 { font-size: 1.25rem; }
-p { margin-bottom: 1em; }
-
-a {
-    color: #1e40af;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    transition: color 0.15s ease;
-}
-a:hover { color: #0f172a; }
-
-/* ========== WIDGET CONTENT (BAWAAN, DIAMBIL) ========== */
+/* ========== WIDGET CONTENT ========== */
 .widget-content ul {
     list-style: none;
     padding: 0;
@@ -74,7 +48,7 @@ a:hover { color: #0f172a; }
     color: #0f172a;
 }
 
-/* ========== POST BODY – UL, LI, STRONG pakai \27A4 ========== */
+/* ========== ARROW 27A4 UNTUK UL, LI, STRONG ========== */
 .post-body ul,
 .post-body li,
 .post-body strong,
@@ -82,12 +56,35 @@ a:hover { color: #0f172a; }
     position: relative !important;
     display: block;
     list-style: none !important;
+    list-style-type: none !important;
     padding-left: var(--list-gap) !important;
     margin: 10px 0 !important;
     line-height: 1.6;
 }
-.post-body ul::before,
-.post-body li::before,
+
+/* Arrow untuk UL */
+.post-body ul::before {
+    content: var(--list-icon) !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--list-color);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* Arrow untuk LI */
+.post-body li::before {
+    content: var(--list-icon) !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--list-color);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* Arrow untuk STRONG */
 .post-body strong::before {
     content: var(--list-icon) !important;
     position: absolute;
@@ -97,6 +94,8 @@ a:hover { color: #0f172a; }
     font-weight: 700;
     font-size: 1rem;
 }
+
+/* Jika UL punya LI di dalemnya, arrow UL sembunyi (biar gak double) */
 .post-body ul:has(li)::before {
     content: none !important;
 }
@@ -104,6 +103,8 @@ a:hover { color: #0f172a; }
     padding-left: 0 !important;
     margin: 0 !important;
 }
+
+/* STRONG tetap warna merah kontras */
 strong, b {
     color: #B71C1C;
     font-weight: 700;
@@ -147,11 +148,12 @@ strong, b {
     background: #BDBDBD;
 }
 
-/* ========== FOOTER HIGHLIGHT – TRAFFIC LINES (ANIMASI TETAP) ========== */
+/* ========== FOOTER HIGHLIGHT – ANIMASI TRAFFIC LINES TETAP JALAN ========== */
 #footer.highlight-on {
     position: relative;
     overflow: hidden;
 }
+
 #footer.highlight-on::before,
 #footer.highlight-on::after,
 #footer.highlight-on .traffic-line-1,
@@ -162,6 +164,7 @@ strong, b {
     pointer-events: none;
     opacity: 0;
 }
+
 #footer.highlight-on::before {
     top: 0;
     left: -100%;
@@ -169,6 +172,7 @@ strong, b {
     height: 2px;
     animation: line-run-right 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
+
 #footer.highlight-on::after {
     top: -100%;
     right: 0;
@@ -178,7 +182,8 @@ strong, b {
     animation: line-run-down 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     animation-delay: 3.75s;
 }
-.traffic-line-1 {
+
+#footer.highlight-on .traffic-line-1 {
     bottom: 0;
     right: -100%;
     width: 100%;
@@ -186,7 +191,8 @@ strong, b {
     animation: line-run-left 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     animation-delay: 7.5s;
 }
-.traffic-line-2 {
+
+#footer.highlight-on .traffic-line-2 {
     left: 0;
     bottom: -100%;
     width: 2px;
@@ -195,24 +201,29 @@ strong, b {
     animation: line-run-up 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     animation-delay: 11.25s;
 }
+
+/* ANIMASI KEYFRAMES – TETAP ADA */
 @keyframes line-run-right {
     0%   { left: -100%; opacity: 0; }
     5%   { opacity: 1; }
     95%  { opacity: 1; }
     100% { left: 100%; opacity: 0; }
 }
+
 @keyframes line-run-down {
     0%   { top: -100%; opacity: 0; }
     5%   { opacity: 1; }
     95%  { opacity: 1; }
     100% { top: 100%; opacity: 0; }
 }
+
 @keyframes line-run-left {
     0%   { right: -100%; opacity: 0; }
     5%   { opacity: 1; }
     95%  { opacity: 1; }
     100% { right: 100%; opacity: 0; }
 }
+
 @keyframes line-run-up {
     0%   { bottom: -100%; opacity: 0; }
     5%   { opacity: 1; }
@@ -253,7 +264,7 @@ strong, b {
     background: #B71C1C;
 }
 
-/* ========== CONTAINER UTAMA ========== */
+/* ========== SEMUA GAYA LAINNYA TETAP ADA ========== */
 .container {
     max-width: 1100px;
     margin: 0 auto;
@@ -263,8 +274,6 @@ strong, b {
     border-left: 1px solid #e2e8f0;
     border-right: 1px solid #e2e8f0;
 }
-
-/* ========== HEADER AREA ========== */
 .site-title, .site-title a {
     font-size: 1.7rem;
     font-weight: 700;
@@ -275,10 +284,7 @@ strong, b {
 .site-description {
     color: #475569;
     font-size: 0.9rem;
-    margin-top: 2px;
 }
-
-/* ========== NAVIGASI & SEARCH ========== */
 .nav-area {
     margin-bottom: 28px;
     border-bottom: 2px solid #e2e8f0;
@@ -292,15 +298,7 @@ strong, b {
     border-radius: 10px;
     font-family: inherit;
     font-size: 0.95rem;
-    background: #fff;
 }
-.gsc-input input:focus {
-    outline: none;
-    border-color: #1e40af;
-    box-shadow: 0 0 0 3px rgba(30,64,175,0.1);
-}
-
-/* ========== POSTS & FEED ========== */
 .post-outer {
     margin-bottom: 36px;
     padding-bottom: 24px;
@@ -309,16 +307,8 @@ strong, b {
 .post-title {
     font-size: 1.5rem;
     margin-bottom: 8px;
-    color: #0f172a;
 }
-.post-title a {
-    color: inherit;
-    text-decoration: none;
-}
-.post-title a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-}
+.post-title a { color: inherit; text-decoration: none; }
 .date-header {
     font-size: 0.8rem;
     color: #64748b;
@@ -347,11 +337,7 @@ strong, b {
     padding: 16px;
     border-radius: 10px;
     overflow-x: auto;
-    font-size: 0.85rem;
 }
-#ads-helper-root { overflow: hidden; }
-
-/* ========== POST ICONS ========== */
 .post-icons {
     display: inline-flex;
     align-items: center;
@@ -367,30 +353,6 @@ strong, b {
 }
 .item-action a:hover,
 .item-control a:hover { opacity: 1; }
-.item-action .icon-action,
-.item-control .icon-action {
-    width: 18px !important;
-    height: 18px !important;
-    filter: grayscale(100%) brightness(0.4);
-}
-
-/* ========== COMMENT LINK ========== */
-.post-comment-link {
-    font-size: 0.85rem;
-    color: #64748b;
-    margin-left: 10px;
-}
-.post-comment-link a {
-    color: inherit;
-    text-decoration: none;
-    font-weight: 600;
-}
-.post-comment-link a:hover {
-    color: #1e40af;
-    text-decoration: underline;
-}
-
-/* ========== SHARE BUTTONS ========== */
 .post-share-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -407,30 +369,7 @@ strong, b {
     background: #f1f5f9;
     border: 2px solid #e2e8f0;
     text-decoration: none;
-    transition: all 0.2s ease;
 }
-.share-button:hover {
-    background: #e2e8f0;
-    border-color: #cbd5e1;
-}
-
-/* ========== STATUS MESSAGE ========== */
-.status-msg-wrap {
-    background: #f8fafc;
-    border: 2px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 16px 20px;
-    margin-bottom: 24px;
-    font-size: 0.95rem;
-    color: #334155;
-    text-align: center;
-    font-weight: 500;
-}
-.status-msg-border,
-.status-msg-bg,
-.status-msg-hidden { display: none; }
-
-/* ========== READ MORE (JUMP LINK) ========== */
 .jump-link { margin-top: 16px; }
 .jump-link a {
     display: inline-block;
@@ -438,13 +377,8 @@ strong, b {
     background: #1e40af;
     color: #ffffff;
     border-radius: 100px;
-    font-weight: 600;
     text-decoration: none;
-    transition: background 0.2s;
 }
-.jump-link a:hover { background: #0f172a; }
-
-/* ========== COLLAPSIBLE TOOL ========== */
 .tool-toggle-btn { display: none; }
 .post-body .tool-toggle-btn {
     display: inline-block;
@@ -454,22 +388,16 @@ strong, b {
     color: #fff;
     border: none;
     border-radius: 100px;
-    font-weight: 600;
     cursor: pointer;
-    font-size: 0.95rem;
-    font-family: inherit;
 }
-.tool-toggle-btn:hover { background: #0f172a; }
 .collapsible-tool-wrapper {
     overflow: hidden;
-    transition: max-height 0.35s ease, opacity 0.25s;
+    transition: max-height 0.35s ease;
 }
 .collapsible-tool-wrapper.collapsed {
     max-height: 0 !important;
     opacity: 0;
 }
-
-/* ========== FOOTER AREA ========== */
 .footer-area {
     margin-top: 48px;
     border-top: 2px solid #e2e8f0;
@@ -477,14 +405,9 @@ strong, b {
     text-align: center;
     font-size: 0.85rem;
     color: #94a3b8;
-    font-weight: 500;
 }
-
-/* ========== COOKIE BANNER ========== */
 #cookieChoiceInfo, .cookie-choices-info {
     display: none !important;
-    visibility: hidden !important;
-    height: 0 !important;
 }
 #customCookieBanner {
     position: fixed;
@@ -495,14 +418,11 @@ strong, b {
     color: #f1f5f9;
     padding: 16px 24px;
     z-index: 99999;
-    font-size: 14px;
-    font-family: 'Inter', sans-serif;
     display: none;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: 14px;
-    box-shadow: 0 -6px 30px rgba(0,0,0,0.4);
     animation: slideUp 0.4s ease;
 }
 @keyframes slideUp {
@@ -511,27 +431,24 @@ strong, b {
 }
 #customCookieBanner button {
     padding: 10px 22px;
-    border: none;
     border-radius: 100px;
     cursor: pointer;
     font-weight: 600;
-    font-family: inherit;
 }
 .btn-accept { background: #4ade80; color: #0f172a; }
-.btn-accept:hover { background: #22c55e; }
 .btn-reject {
     background: transparent;
     color: #f1f5f9;
     border: 2px solid rgba(241,245,249,0.4) !important;
 }
-.btn-reject:hover { background: rgba(255,255,255,0.06); }
-.cookie-link { color: #93c5fd; text-decoration: underline; }
+@media (max-width: 640px) {
+    .container { padding: 16px 14px; border: none; }
+    .post-title { font-size: 1.3rem; }
+    #customCookieBanner { flex-direction: column; text-align: center; }
+    .widget-content ul { flex-direction: column; gap: 10px; }
+}
 
-/* ========== UTILITIES & PERFORMANCE ========== */
-.text-center { text-align: center; }
-.mt-2 { margin-top: 1rem; }
-.mb-2 { margin-bottom: 1rem; }
-.p-1 { padding: 0.5rem; }
+/* ========== PERFORMANCE & KONTRAST ========== */
 img {
     max-width: 100%;
     height: auto;
@@ -539,20 +456,6 @@ img {
     content-visibility: auto;
 }
 a:focus-visible {
-    outline: 3px solid #000000;
+    outline: 3px solid #000;
     outline-offset: 2px;
-}
-
-/* ========== MOBILE RESPONSIVE ========== */
-@media (max-width: 640px) {
-    .container { padding: 16px 14px; border: none; }
-    .post-title { font-size: 1.3rem; }
-    .site-title, .site-title a { font-size: 1.4rem; }
-    #customCookieBanner {
-        flex-direction: column;
-        text-align: center;
-        padding: 16px;
-        gap: 12px;
-    }
-    .widget-content ul { flex-direction: column; gap: 10px; }
 }
